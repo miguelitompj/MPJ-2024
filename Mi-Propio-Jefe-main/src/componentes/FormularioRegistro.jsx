@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 class FormularioRegistro extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -21,29 +20,18 @@ class FormularioRegistro extends React.Component {
         }
     }
 
-    peticionGet = () => {
-        axios.get('http://localhost:4001/api/usuarios')
-            .then((response) => {
-                this.setState({
-                    datos: response.data
-                });
-            }).catch(error => {
-                console.log(error.message);
-            })
-    }
-
     peticionPost = async () => {
         delete this.state.form.id;
         await axios.post('http://localhost:4001/api/usuarios', this.state.form)
             .then(response => {
-                alert(`Bienvenido`)
-
+                alert('Bienvenido');
+                if (this.props.onRegister) {  // Llama a la función si existe
+                    this.props.onRegister();
+                }
             }).catch(error => {
                 console.log(error.message);
             })
-
     }
-
 
     handleChange = async (e) => {
         e.persist();
@@ -52,62 +40,55 @@ class FormularioRegistro extends React.Component {
                 ...this.state.form,
                 [e.target.name]: e.target.value
             }
-        })
-        console.log(this.state.form)
+        });
+        console.log(this.state.form);
     }
 
-
-
     render() {
-
-        // const datosForm = this.state.form;
-        const data = this.state.datos;
-        console.log(data)
+        const { form } = this.state;
 
         return (
-
             <div className="bg-white col-md-8 order-md-1 container my-5">
                 <h1 className="mb-3 text-center">Registro</h1>
                 <form className="needs-validation" noValidate="">
                     <div className="row">
-                        
                         <div className="col-md-6 mb-3">
-                            <label >Nombres</label>
-                            <input type="text" className="form-control" name="Nombres" id="Usuario" placeholder="Nombres" required="" onChange={this.handleChange} value={data.Nombres}></input>
+                            <label>Nombres</label>
+                            <input type="text" className="form-control" name="Nombres" placeholder="Nombres" required="" onChange={this.handleChange} value={form.Nombres}></input>
                         </div>
                         <div className="col-md-6 mb-3">
                             <label>Apellidos</label>
-                            <input type="text" className="form-control" name="Apellidos" id="Usuario" placeholder="Apellidos" required="" onChange={this.handleChange} value={data.Apellidos}></input>
+                            <input type="text" className="form-control" name="Apellidos" placeholder="Apellidos" required="" onChange={this.handleChange} value={form.Apellidos}></input>
                         </div>
                     </div>
                     <div className="mb-3">
                         <label>Correo</label>
-                        <input type="email" className="form-control" name="Correo" id="email" placeholder="you@example.com" onChange={this.handleChange} value={data.Correo}></input>
+                        <input type="email" className="form-control" name="Correo" placeholder="you@example.com" onChange={this.handleChange} value={form.Correo}></input>
                     </div>
                     <div className="mb-3">
                         <label>Contraseña</label>
-                        <input type="password" className="form-control" name="Contraseña" id="Contrasena" onChange={this.handleChange} value={data.Contraseña}></input>
+                        <input type="password" className="form-control" name="Contraseña" onChange={this.handleChange} value={form.Contraseña}></input>
                     </div>
-                    
                     <div className="mb-3">
                         <label>Departamento</label>
-                        <input type="text" className="form-control" name="Departamento" id="email" onChange={this.handleChange} value={data.Departamento}></input>
+                        <input type="text" className="form-control" name="Departamento" onChange={this.handleChange} value={form.Departamento}></input>
                     </div>
                     <div className="mb-3">
                         <label>Ciudad</label>
-                        <input type="text" className="form-control" name="Ciudad" id="email" onChange={this.handleChange} value={data.Ciudad}></input>
+                        <input type="text" className="form-control" name="Ciudad" onChange={this.handleChange} value={form.Ciudad}></input>
                     </div>
                     <div className="mb-3">
                         <label>Ocupación</label>
-                        <input type="text" className="form-control" name="Ocupacion" id="email" onChange={this.handleChange} value={data.Ocupacion}></input>
+                        <input type="text" className="form-control" name="Ocupacion" onChange={this.handleChange} value={form.Ocupacion}></input>
                     </div>
                     <hr className="mb-4"></hr>
                     <Link to="/seccion_iniciada">
-                        <button className="btn btn-outline-primary btn-lg btn-block" type="submit" onClick={() => this.peticionPost()} ><font style={{ marginRight: 'vertical-align: inherit' }} >Registrarme</font></button>
+                        <button className="btn btn-outline-primary btn-lg btn-block" type="button" onClick={() => this.peticionPost()}>
+                            Registrarme
+                        </button>
                     </Link>
                 </form>
             </div>
-
         );
     }
 }

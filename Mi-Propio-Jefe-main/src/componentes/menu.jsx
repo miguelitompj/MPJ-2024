@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Menu() {
+function Menu({ isSessionActive, showWelcome }) {
   return (
-    <div className="header" style={{backgroundColor:"#ffffff"}}>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{margin:"20px"}}>
+    <div className="header" style={{ backgroundColor: "#ffffff" }}>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ margin: "20px" }}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <i>Mi Propio Jefe</i>
@@ -39,7 +39,7 @@ function Menu() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contactanos">
-                  Contactanos
+                  Contáctanos
                 </Link>
               </li>
               <li className="nav-item">
@@ -69,21 +69,25 @@ function Menu() {
           </button>
         </form>
       </div>
-      <div className="p-3">
-        <div className="card text-center">
-          <div className="card-header" style={{ backgroundColor: "#aaf0cb" }}>
-            <strong>¡Bienvenidos!</strong>
-          </div>
-          <div className="card-body" style={{ backgroundColor: "#ffffff" }}>
-            <h4 className="encabezado fst-italic">
-              Apoya a los pequeños emprendedores o date a conocer dentro de este mundo
-            </h4>
-            <p className="card-text">
-              En esta página contamos con el apoyo suficiente para destacar a los jóvenes emprendedores o para hacer crecer tu negocio.
-            </p>
+
+      {/* Mostrar la tarjeta de bienvenida solo si la sesión no está activa y el mensaje está habilitado */}
+      {!isSessionActive && showWelcome && (
+        <div className="p-3">
+          <div className="card text-center">
+            <div className="card-header" style={{ backgroundColor: "#c0d7d7" }}>
+              <strong>¡Bienvenidos!</strong>
+            </div>
+            <div className="card-body" style={{ backgroundColor: "#ffffff" }}>
+              <h4 className="encabezado fst-italic">
+                Apoya a los pequeños emprendedores o date a conocer dentro de este mundo
+              </h4>
+              <p className="card-text">
+                En esta página contamos con el apoyo suficiente para destacar a los jóvenes emprendedores o para hacer crecer tu negocio.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -1,17 +1,16 @@
 import React from 'react'
 import Menu from '../componentes/menu'
+import SobreNosotros from '../componentes/sobre_nosotros'
+import logo from "../imagenes/logo.jpeg"
 
-function Nosotros() {
-  return (
-    <div className='Inicio'>
-      <Menu />
-      <div className="text-center pb-4">
-        <h2 className="encabezado mt-3 pt-3">
-          <span className="text-primary"><p>Objetivo de nuestra pagina</p></span>
-        </h2>
-        <p></p>
-      </div>
+function SobreNosotros () {
+  return(
+    <div className='SobreNosotros'>
+      <SobreNosotros/>
+      <Menu/>
+      <logo/>
     </div>
   )
 }
-export default Nosotros;
+
+export default SobreNosotros;

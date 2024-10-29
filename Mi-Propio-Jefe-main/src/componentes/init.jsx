@@ -24,7 +24,7 @@ function Init() {
             </div>
             <div className="p-3">
         <div className="card text-center">
-          <div className="card-header" style={{ backgroundColor: "#aaf0cb" }}>
+          <div className="card-header" style={{ backgroundColor: "#c0d7d7" }}>
             <strong>¿QUÉ ENCONTRARÁS AQUÍ?</strong>
           </div>
           <div className="card-body" style={{ backgroundColor: "#ffffff" }}>
