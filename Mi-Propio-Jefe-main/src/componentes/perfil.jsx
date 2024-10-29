@@ -14,12 +14,10 @@ function Profile() {
               <div className="card-body text-center">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                   className="rounded-circle img-fluid" style={{ width: "150px" }} />
-                <h5 className="my-3">Julio Jaramillo</h5>
+                <h5 className="my-3">Juan Alvarez</h5>
                 <p className="text-muted mb-1">Emprendedor novato</p>
                 <p className="text-muted mb-4">Campoamor, Medellin-Antioquia</p>
-                <div className="d-flex justify-content-center mb-2">
-                  <button type="button" className="btn btn-primary">Personalizar</button>
-                </div>
+                
               </div>
             </div>
             <div className="card mb-4 mb-lg-0">
@@ -28,15 +26,15 @@ function Profile() {
                  
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <IoLogoTwitter style={{color: "#55acee"}}/>
-                    <p className="mb-0">@JulioJaramillo01</p>
+                    <p className="mb-0">@JAlvarez05</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <BsInstagram style={{color: "#ac2bac"}}/>
-                    <p className="mb-0">01__Jaramillo</p>
+                    <p className="mb-0">Lazy_alvrz</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <BsFacebook style={{color: "#3b5998"}}/>
-                    <p className="mb-0">Julio Jaramillo Laurido</p>
+                    <p className="mb-0">Juan Alvarez Zapata</p>
                   </li>
                 </ul>
               </div>
@@ -50,7 +48,7 @@ function Profile() {
                     <p className="mb-0">Nombre Completo</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">Julio Alfredo Jaramillo Laurido</p>
+                    <p className="text-muted mb-0">Juan Jose Alvarez Zapata</p>
                   </div>
                 </div>
                 <hr />
@@ -59,7 +57,7 @@ function Profile() {
                     <p className="mb-0">Correo Electronico</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">juliojara@gmail.com</p>
+                    <p className="text-muted mb-0">JJZapata09@gmail.com</p>
                   </div>
                 </div>
                 <hr />

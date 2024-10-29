@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-function Menu({ isSessionActive, showWelcome }) {
+function Menu({ isSessionActive }) {
+  const location = useLocation(); // Obtiene la ubicación actual
+
+  // Mostrar la tarjeta de bienvenida solo en las rutas "login" o "registro"
+  const showWelcomeCard = location.pathname === "/login" || location.pathname === "/registro";
+
   return (
-    <div className="header" style={{ backgroundColor: "#ffffff" }}>
+    <div className="header" style={{ backgroundColor: "#a7b2ab" }}>
       <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ margin: "20px" }}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
@@ -23,34 +28,22 @@ function Menu({ isSessionActive, showWelcome }) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Inicio de Sesión
-                </Link>
+                <Link className="nav-link" to="/login">Inicio de Sesión</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/registro">
-                  Regístrate
-                </Link>
+                <Link className="nav-link" to="/registro">Regístrate</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Inicio
-                </Link>
+                <Link className="nav-link" to="/">Inicio</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contactanos">
-                  Contáctanos
-                </Link>
+                <Link className="nav-link" to="/contactanos">Contáctanos</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/sobre_nosotros">
-                  Sobre Nosotros
-                </Link>
+                <Link className="nav-link" to="/sobre_nosotros">Sobre Nosotros</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/perfil">
-                  Mi perfil
-                </Link>
+                <Link className="nav-link" to="/perfil">Mi perfil</Link>
               </li>
             </ul>
           </div>
@@ -64,14 +57,14 @@ function Menu({ isSessionActive, showWelcome }) {
             placeholder="¿Qué deseas ver?"
             aria-label="Search"
           />
-          <button type="submit" className="btn btn-dark">
-            Buscar
-          </button>
+          <Link to="/busqueda">
+            <button type="button" className="btn btn-dark">Buscar</button>
+          </Link>
         </form>
       </div>
 
-      {/* Mostrar la tarjeta de bienvenida solo si la sesión no está activa y el mensaje está habilitado */}
-      {!isSessionActive && showWelcome && (
+      {/* Mostrar la tarjeta de bienvenida solo si la ruta es "login" o "registro" */}
+      {showWelcomeCard && (
         <div className="p-3">
           <div className="card text-center">
             <div className="card-header" style={{ backgroundColor: "#c0d7d7" }}>

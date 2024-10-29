@@ -22,15 +22,15 @@ function pie_de_pagina() {
           <div className="text-center mx-auto">
             <h2 className="encabezado mt-3 pt-3">
               <strong>
-              <span className="text-primary">¡ Todos somos uno !</span>
+              <p style={{ color: 'black' }}>¡TODOS SOMOS UNO!</p>
               </strong>
             </h2>
-            <p className="px-3">
+            <p className="px-0">
               <small>
                   Sumergete en el mundo de los emprendedores y aprende a ser el mejor.
               </small>
             </p>
-           
+            <div style={{ margin: "50px" }}></div>
           </div>
         </div> 
       </div>  
